@@ -1,0 +1,14 @@
+- name:  uninstalling ngnix
+  hosts: servers
+
+  tasks:
+ 
+  - name: Stop Nginx
+    become: true
+    service: name=nginx  state=stopped
+
+  - name: Ensure nginx is not there
+    become: true
+    apt: 
+     name: nginx 
+     state: absent
