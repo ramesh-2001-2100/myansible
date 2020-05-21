@@ -1,0 +1,9 @@
+- name: test cmd from win_command module
+  hosts: windows
+  tasks:
+    - name: Install IIS (Web-Server and Web-Common-Http)
+      win_feature:
+        name:
+        - Web-Server
+        - Web-Common-Http
+        state: present
