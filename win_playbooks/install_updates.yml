@@ -1,0 +1,13 @@
+---
+- name: Install all windows security and critical updates and wait 10 mins
+  hosts: windows
+  tasks:
+    - name: Install updates
+      win_updates:
+        category_names:
+          - CriticalUpdates
+          - SecurityUpdates
+        blacklist:
+          - Windows Malicious Software Removal Tool for Windows
+        reboot: yes
+        reboot_timeout: 600
