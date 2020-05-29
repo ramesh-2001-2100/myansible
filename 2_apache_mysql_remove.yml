@@ -1,0 +1,11 @@
+---
+- name:  removing apache and mysql
+  hosts: localhost
+
+  tasks:
+  - name: Can we remove Apache2 Web server
+    become: true
+    apt: pkg={{ item}} state=absent
+    with_items: 
+      - apache2
+      - mysql-server

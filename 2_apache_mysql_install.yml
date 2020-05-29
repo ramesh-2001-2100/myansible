@@ -1,0 +1,11 @@
+---
+- name:  installing apache and mysql
+  hosts: localhost
+
+  tasks:
+  - name: Can we install Apache2 Web server
+    become: true
+    apt: pkg={{ item}} state=latest update_cache=true
+    with_items: 
+      - apache2
+      - mysql-server
